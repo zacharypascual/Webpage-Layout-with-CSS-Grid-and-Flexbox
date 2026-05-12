@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "sidebar main"
+    "footer footer";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+.header {
+    display: flex;
+    grid-area: header;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background-color: rgb(161, 43, 43);
+    color: hsl(0, 0%, 100%);
+}
+
+.logo {
+    font-weight: bold;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 30px;
+}
+
+.navbar {
+    display: flex;
+    font-size: 20px;
+    gap: 20px;
+}
+
+.navbar a{
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    color: hsl(240, 100%, 60%);
+    transition: 0.15s;
+}
+
+.sidebar {
+    padding: 24px;
+    background-color: antiquewhite;
+    border-right: 1px solid #b6c2d1;
+    grid-area: sidebar;
+}
+
+.sidebar p:hover {
+    color: rgb(255, 31, 31);
+}
+
+.main {
+    padding: 24px;
+    grid-area: main;
+}
+
+.footer {
+    padding: 16px;
+    text-align: center;
+    background-color: rgb(161, 43, 43);
+    color: white;
+    grid-area: footer;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}   
+
+.card {
+    display: flex;
+    min-height: 120px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.08);
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.card img {
+    padding: 5px;
+    margin: 5px;
+}
+
+.card:hover {
+    text-decoration: underline;
+    color: hsl(240, 100%, 60%);
+    background-color: hsla(0, 0%, 0%, 0.08);
+    transition: 0.15s;
+}
+
+@media (max-width: 768px) {
+    .page {
+        grid-template-areas: 
+        "header" 
+        "sidebar"
+        "main"
+        "footer";
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
